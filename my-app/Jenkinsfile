@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/New_demo/my-app/") {
+                dir("C:\Users\Administrator\AppData\Local\Jenkins\.jenkins\workspace\Pipeline_demo\my-app\") {
                 sh 'mvn -B -DskipTests clean package'
                 }
             
@@ -26,7 +26,7 @@ pipeline {
        always {
           junit(
         allowEmptyResults: true,
-        testResults: '*/test-reports/.xml'
+        testResults: 'target\surefire-reports\*.xml'
       )
       }
    } 
